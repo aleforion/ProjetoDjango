@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+{% block conteudo %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <th class="text-center">Descrição</th>
+                <th class="text-center">Categoria</th>
+                <th class="text-center">Valor</th>
+                <th class="text-center">Vencimento</th>
+            </thead>
+
+            <tbody>
+                {% for c in lista_conta %}
+                    <tr>
+                        <td class="text-center">{{ c.descricao }}</td>
+                        <td class="text-center">{{ c.categoria.nome }}</td>
+                        <td class="text-center">{{ c.valor }}</td>
+                        <td class="text-center">{{ c.vencimento }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
