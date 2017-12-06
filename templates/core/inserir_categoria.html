@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+     <h1>Inserir Categoria</h1>
+
+    <form method="POST" action="{% url 'categoria_adicionada' %}">
+        {% csrf_token %}
+        <div class="form-group">
+             {{ form }}<br>
+             <input type="submit" class="btn btn-primary" value="Salvar">
+        </div>
+    </form>
+
+     <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <th class="text-center">Nome</th>
+                <th class="text-center">Ativo</th>
+                <th></th>
+            </thead>
+
+            <tbody>
+                {% for c in lista_categoria %}
+                    <tr>
+                        <td class="text-center">{{ c.nome }}</td>
+                        <td class="text-center">{{ c.ativa}}</td>
+                        <td class="text-center">
+                            <a href="{% url 'atualizar_categoria' c.id %}"><button type="button" class="btn btn-primary">Edite</button></a>
+                            <a href="{% url 'delete_categoria' c.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
