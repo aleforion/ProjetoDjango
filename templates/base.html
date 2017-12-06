@@ -22,29 +22,29 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="base.html">Financeiro</a>
+    <a class="navbar-brand" href="{% url 'inicio' %}">Financeiro</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="base.html">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+          <a class="nav-link" href="https://static.mundodasmensagens.com/upload/textos/n/a/nao-procure-riqueza-nem-fortuna-se-ainda-nao-tem-o-amor-que-preci-7PE2Z-w.jpg">
+            <i class="fa fa-gittip"></i>
+            <span class="nav-link-text">LOVE</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+            <i class="fa fa-th-list"></i>
+            <span class="nav-link-text">Ações</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="{% url 'inserir_conta' %}">Adicionar Conta</a>
             </li>
             <li>
-              <a href="cards.html">Cards</a>
+              <a href="{% url 'inicio' %}">Adicionar Categoria</a>
             </li>
           </ul>
         </li>

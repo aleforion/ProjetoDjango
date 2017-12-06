@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <h1>Atualizar Conta</h1>
+
+    <form method="POST" action="{% url 'conta_atualizada' %}">
+        {% csrf_token %}
+        {{ form }}
+
+        <input type="hidden" name="id_conta" value="{{ pk }}">
+        <input type="submit" value="Atualizar">
+    </form>
+
+
+{% endblock %}

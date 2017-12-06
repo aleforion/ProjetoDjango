@@ -1,13 +1,16 @@
-from django.forms import  ModelForm
-from django import forms
+from django.forms import ModelForm
 from core.models.controle import Conta, Categoria
 
 
 class CategoriaForm(ModelForm):
-    model = Categoria
+    class Meta:
+        model = Categoria
+        exclude =['']
 
 
 class ContaForm(ModelForm):
-    model = Conta
+    class Meta:
+        model = Conta
+        exclude = ['']
 
 

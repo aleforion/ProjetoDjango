@@ -15,5 +15,9 @@ class Conta(models.Model):
     valor = models.DecimalField("Valor", max_digits=9, decimal_places=2, blank=False)
     vencimento = models.DateField("Vencimento", blank=False)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.is_valid = None
+
     def __str__(self):
         return self.descricao

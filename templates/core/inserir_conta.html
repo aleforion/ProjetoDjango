@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    <h1>Inserir Conta</h1>
+
+    <form method="POST" action="{% url 'inserir' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Descrição:</label>
+            {{ form.descricao }}<br><br>
+            <label>Categoria:</label>
+            {{ form.categoria }}<br><br>
+            <label>Valor:</label>
+            {{ form.valor }}<br><br>
+            <label>Vencimento:</label>
+            {{ form.vencimento }}<br><br>
+            <input type="submit" value="Salvar">
+        </div>
+    </form>
+
+{% endblock %}
