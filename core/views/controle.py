@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from core.models.controle import Conta, Categoria
-from core.forms.formulario import ContaForm
+from core.forms.formulario import ContaForm, CategoriaForm
 
 
 def inicio (request):
@@ -40,6 +40,23 @@ def conta_atualizada(request):
     if form.is_valid:
         form.save()
         return redirect('inicio')
+
+def atualizar_categoria(request, pk):
+    dados = {}
+
+    categoria = Categoria.objects.get(id=pk)
+    dados['form'] = CategoriaForm(instance=categoria)
+    dados['pk'] = pk
+    return render(request, 'core/atualizar_conta.html', dados)
+
+
+def categoria_adicionada(request):
+    categoria = Categoria(request.POST)
+
+    if categoria.is_valid:
+        categoria.save()
+        return redirect('inicio')
+    return redirect('inicio')
 
 
 

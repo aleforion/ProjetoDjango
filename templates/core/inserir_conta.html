@@ -7,15 +7,8 @@
     <form method="POST" action="{% url 'inserir' %}">
         {% csrf_token %}
         <div class="form-group">
-            <label>Descrição:</label>
-            {{ form.descricao }}<br><br>
-            <label>Categoria:</label>
-            {{ form.categoria }}<br><br>
-            <label>Valor:</label>
-            {{ form.valor }}<br><br>
-            <label>Vencimento:</label>
-            {{ form.vencimento }}<br><br>
-            <input type="submit" value="Salvar">
+             {{ form }}<br>
+             <input type="submit" class="btn btn-primary" value="Salvar">
         </div>
     </form>
 

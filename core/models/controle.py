@@ -5,6 +5,10 @@ class Categoria(models.Model):
     nome = models.CharField("Nome", max_length=100, blank=False)
     ativa = models.BooleanField("ativa", default=True)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.is_valid = None
+
     def __str__(self):
         return self.nome
 
