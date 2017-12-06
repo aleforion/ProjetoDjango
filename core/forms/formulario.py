@@ -4,8 +4,8 @@ from django import forms
 
 
 class CategoriaForm(ModelForm):
-    nome = forms.CharField(label='Nome', widget=forms.TextInput(attrs={"class": "form-control"}))
-    #ativa = forms.BooleanField(label='Ativa', widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    nome = forms.CharField(label='Nome ', widget=forms.TextInput(attrs={"class": "form-control"}))
+    ativa = forms.BooleanField(label='Ativa ')
 
     class Meta:
         model = Categoria
