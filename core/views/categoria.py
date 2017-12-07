@@ -12,7 +12,7 @@ def inserir_categoria(request):
 
 def categoria_adicionada(request):
     categoria = CategoriaForm(request.POST)
-    if categoria.is_valid:
+    if categoria.is_valid():
         categoria.save()
         return redirect('inserir_categoria')
     return redirect('inicio')

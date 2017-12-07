@@ -20,7 +20,7 @@ def inserir_conta(request):
 def inserir (request):
     conta = ContaForm(request.POST)
 
-    if conta.is_valid:
+    if conta.is_valid():
         conta.save()
         return redirect('inicio')
     return redirect('inicio')
