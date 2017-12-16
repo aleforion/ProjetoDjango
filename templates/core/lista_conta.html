@@ -17,7 +17,7 @@
                 </ul>
           </div><!-- /btn-group -->
         </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
+      </div>
 </div>
     <br>
     <div class="table-responsive">
@@ -41,7 +41,7 @@
                         <td class="text-center">{% if c.pago %}Sim{% else %}Não{% endif %}</td>
                         <td class="text-center">
                             <a href="{% url 'atualizar_conta' c.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
-                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" data-id={{ c.id }}>Delete</button>
+                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" onclick="deleteConta({{ c.id }})">Delete</button>
                         </td>
                     </tr>
                 {% endfor %}

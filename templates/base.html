@@ -112,10 +112,11 @@
     <script src="{% static 'js/sb-admin-datatables.min.js' %}"></script>
     <script src="{% static 'js/sb-admin-charts.min.js' %}"></script>
     <script>
-        $('#botao_deletar').click(function() {
-            idDelete = $(this).attr('data-id');
-            document.getElementById('hiddenId').value=idDelete;
-        });
+        function deleteConta(id){
+            idDelete = id;
+            document.getElementById('hiddenId').value =idDelete;
+            console.log("chamou");
+        }
     </script>
     <script>
           function myFunction() {

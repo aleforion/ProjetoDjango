@@ -14,11 +14,11 @@ class CategoriaForm(ModelForm):
 
 class ContaForm(ModelForm):
     opcoes = Categoria.objects.all()
-    descricao = forms.CharField(label='Descrição: ', widget=forms.TextInput(attrs={"class": "form-control"}))
-    categoria = forms.ModelChoiceField(queryset=opcoes, label='Categoria', widget=forms.Select(attrs={"class": "form-control"}))
-    valor = forms.DecimalField(label='Valor', widget=forms.NumberInput(attrs={"class": "form-control"}))
-    vencimento = forms.DateField(label='Vencimento: ', widget=forms.DateInput(attrs={"class": "form-control", "type": "date"}))
-    pago = forms.BooleanField(label='Pago ', required=False)
+    descricao = forms.CharField(label='Descrição ', widget=forms.TextInput(attrs={"class": "form-control"}))
+    categoria = forms.ModelChoiceField(queryset=opcoes, label='Categoria:', widget=forms.Select(attrs={"class": "form-control"}))
+    valor = forms.DecimalField(label='Valor ', widget=forms.NumberInput(attrs={"class": "form-control"}))
+    vencimento = forms.CharField(label='Vencimento ', widget=forms.TextInput(attrs={"class": "form-control", "type": "date"}))
+    pago = forms.BooleanField(label='Pago: ', required=False)
 
     class Meta:
         model = Conta

@@ -6,10 +6,13 @@
 
     <form method="POST" action="{% url 'inserir_conta' %}">
         {% csrf_token %}
-        <div class="form-group">
-             {{ form }}<br>
-             <input type="submit" class="btn btn-primary" value="Salvar">
-        </div>
+
+        {% for f in form %}<br>
+            <div class="form-group">
+                <label>{{f.label}}</label>{{ f }}
+            </div>
+        {% endfor %}
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 
 {% endblock %}

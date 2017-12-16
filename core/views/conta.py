@@ -8,7 +8,7 @@ def inicio (request):
     soma = 0
     dados = {}
     dados['form'] = ContaForm()
-    dados['lista_conta'] = Conta.objects.all()
+    dados['lista_conta'] = Conta.objects.all().order_by('-descricao')
     dados['soma'] = Conta.objects.all().aggregate(Sum('valor'))
     dados['categorias'] = Categoria.objects.all()
     return render(request, 'core/lista_conta.html', dados)
