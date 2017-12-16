@@ -4,7 +4,7 @@
 
     <h1>Inserir Conta</h1>
 
-    <form method="POST" action="{% url 'inserir' %}">
+    <form method="POST" action="{% url 'inserir_conta' %}">
         {% csrf_token %}
         <div class="form-group">
              {{ form }}<br>

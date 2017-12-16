@@ -5,7 +5,7 @@ from django import forms
 
 class CategoriaForm(ModelForm):
     nome = forms.CharField(label='Nome ', widget=forms.TextInput(attrs={"class": "form-control"}))
-    ativa = forms.BooleanField(label='Ativa ')
+    ativa = forms.BooleanField(label='Ativa ', required=False)
 
     class Meta:
         model = Categoria
@@ -17,7 +17,9 @@ class ContaForm(ModelForm):
     descricao = forms.CharField(label='Descrição: ', widget=forms.TextInput(attrs={"class": "form-control"}))
     categoria = forms.ModelChoiceField(queryset=opcoes, label='Categoria', widget=forms.Select(attrs={"class": "form-control"}))
     valor = forms.DecimalField(label='Valor', widget=forms.NumberInput(attrs={"class": "form-control"}))
-    vencimento = forms.CharField(label='Vencimento: ', widget=forms.TextInput(attrs={"class": "form-control"}))
+    vencimento = forms.DateField(label='Vencimento: ', widget=forms.DateInput(attrs={"class": "form-control", "type": "date"}))
+    pago = forms.BooleanField(label='Pago ', required=False)
+
     class Meta:
         model = Conta
         exclude = ['']

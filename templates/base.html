@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Financeiro</title>
   <!-- Bootstrap core CSS-->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -17,12 +17,14 @@
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet">
+  <link href="{% static 'css/meu.css' %}" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="{% url 'inicio' %}">Financeiro</a>
+
+    <a class="navbar-brand" href="{% url 'inicio' %}"> <i class="fa fa-bank"></i> <strong>Financeiro</strong></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -109,6 +111,51 @@
     <!-- Custom scripts for this page-->
     <script src="{% static 'js/sb-admin-datatables.min.js' %}"></script>
     <script src="{% static 'js/sb-admin-charts.min.js' %}"></script>
+    <script>
+        $('#botao_deletar').click(function() {
+            idDelete = $(this).attr('data-id');
+            document.getElementById('hiddenId').value=idDelete;
+        });
+    </script>
+    <script>
+          function myFunction() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+     </script>
+
+     <script>
+          function functionDrop() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("inputDrop");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+     </script>
   </div>
 </body>
 

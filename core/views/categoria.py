@@ -7,15 +7,11 @@ def inserir_categoria(request):
     dados = {}
     dados['form'] = CategoriaForm()
     dados['lista_categoria'] = Categoria.objects.all()
-    return render(request, 'core/inserir_categoria.html', dados)
-
-
-def categoria_adicionada(request):
     categoria = CategoriaForm(request.POST)
     if categoria.is_valid():
         categoria.save()
         return redirect('inserir_categoria')
-    return redirect('inicio')
+    return render(request, 'core/inserir_categoria.html', dados)
 
 
 def atualizar_categoria(request, pk):
@@ -29,12 +25,13 @@ def atualizar_categoria(request, pk):
 def cotegoria_atualizada(request):
     categoria = Categoria.objects.get(pk=request.POST['id_categoria'])
     form = CategoriaForm(request.POST or None, instance=categoria)
-    if form.is_valid:
+    if form.is_valid():
         form.save()
         return redirect('inserir_categoria')
 
 
-def delete_categoria(request, pk):
-    categoria = Categoria.objects.get(id=pk)
+def delete_categoria(request):
+    id = request.POST['nameHidden']
+    categoria = Categoria.objects.get(id=id)
     categoria.delete()
     return redirect('inserir_categoria')

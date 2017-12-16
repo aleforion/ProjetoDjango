@@ -18,6 +18,7 @@ class Conta(models.Model):
     categoria = models.ForeignKey(Categoria, verbose_name="Categoria", blank=False)
     valor = models.DecimalField("Valor", max_digits=9, decimal_places=2, blank=False)
     vencimento = models.DateField("Vencimento", blank=False)
+    pago = models.BooleanField("Pago", default=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
