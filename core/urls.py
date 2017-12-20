@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from core.views import conta, categoria
+from core.views import conta, categoria, autenticacao
 
 
 urlpatterns = [
@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^atualizar_categoria/(?P<pk>\d+)/$', categoria.atualizar_categoria, name='atualizar_categoria'),
     url(r'^categoria_atualizada/$', categoria.cotegoria_atualizada, name='categoria_atualizada'),
     url(r'^delete_categoria/$', categoria.delete_categoria, name='delete_categoria'),
+    url(r'^autenticacao/$', autenticacao.auth, name='autenticacao'),
+    url(r'^sair/$', autenticacao.logout_conta, name='sair')
 ]
