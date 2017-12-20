@@ -111,52 +111,7 @@
     <!-- Custom scripts for this page-->
     <script src="{% static 'js/sb-admin-datatables.min.js' %}"></script>
     <script src="{% static 'js/sb-admin-charts.min.js' %}"></script>
-    <script>
-        function deleteConta(id){
-            idDelete = id;
-            document.getElementById('hiddenId').value =idDelete;
-            console.log("chamou");
-        }
-    </script>
-    <script>
-          function myFunction() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[0];
-              if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-                } else {
-                  tr[i].style.display = "none";
-                }
-              }
-            }
-          }
-     </script>
-
-     <script>
-          function functionDrop() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("inputDrop");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
-              if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-                } else {
-                  tr[i].style.display = "none";
-                }
-              }
-            }
-          }
-     </script>
+    <script src="{% static 'js/helpers.js' %}"></script>
   </div>
 </body>
 

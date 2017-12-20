@@ -4,7 +4,7 @@
 
     <h1>Inserir Conta</h1>
 
-    <form method="POST" action="{% url 'inserir_conta' %}">
+    <form id="formConta" method="POST" action="{% url 'inserir_conta' %}">
         {% csrf_token %}
 
         {% for f in form %}<br>
@@ -12,7 +12,7 @@
                 <label>{{f.label}}</label>{{ f }}
             </div>
         {% endfor %}
-        <input type="submit" class="btn btn-primary" value="Salvar">
+        <input type="button" class="btn btn-primary" value="Salvar" onclick="criarC()">
     </form>
 
 {% endblock %}
