@@ -41,7 +41,7 @@
                         <td class="text-center">{% if c.pago %}Sim{% else %}Não{% endif %}</td>
                         <td class="text-center">
                             <a href="{% url 'atualizar_conta' c.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
-                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" onclick="deleteConta({{ c.id }})">Delete</button>
+                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" onclick="deleteCHidden({{ c.id }})">Delete</button>
                         </td>
                     </tr>
                 {% endfor %}
@@ -71,10 +71,10 @@
             </div>
             <div class="modal-body">
                 <p>Você deseja realmente deleta?</p>
-                <form id="formDeletar" method="POST" action="{% url 'delete' %}">
+                <form id="formDeletar" method="POST">
                     {% csrf_token %}
                     <input type="hidden" id="hiddenId" name="nameHidden">
-                    <input type="button" class="btn btn-danger" value="Sim" onclick="deleteC()" data-dismiss="modal">
+                    <input type="button" class="btn btn-danger" value="Sim" onclick="deleteC('conta')" data-dismiss="modal">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
                 </form>
             </div>
