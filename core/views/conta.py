@@ -1,10 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from core.models.controle import Conta, Categoria
 from core.forms.formulario import ContaForm
 from django.db.models import Sum
 from django.http import JsonResponse
 
-
+@login_required
 def inicio (request):
     dados = {}
     dados['lista_conta'] = Conta.objects.all().order_by('-descricao')
@@ -14,7 +15,7 @@ def inicio (request):
     dados['categorias'] = Categoria.objects.all()
     return render(request, 'core/lista_conta.html', dados)
 
-
+@login_required
 def inserir_conta(request):
     dados = {}
     dados['form'] = ContaForm()
@@ -35,7 +36,7 @@ def inserir_conta(request):
         return JsonResponse(lista_conta)
     return render(request, 'core/inserir_conta.html', dados)
 
-
+@login_required
 def atualizar_conta(request, pk):
     dados = {}
     conta = Conta.objects.get(id=pk)
@@ -43,7 +44,7 @@ def atualizar_conta(request, pk):
     dados['pk'] = pk
     return render(request, 'core/atualizar_conta.html', dados)
 
-
+@login_required
 def conta_atualizada(request):
     conta = Conta.objects.get(pk=request.POST['id_conta'])
     form = ContaForm(request.POST or None, instance=conta)
@@ -51,7 +52,7 @@ def conta_atualizada(request):
         form.save()
         return redirect('inicio')
 
-
+@login_required
 def delete(request):
     id = request.POST['nameHidden']
     conta = Conta.objects.get(id=id)
