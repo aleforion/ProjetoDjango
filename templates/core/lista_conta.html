@@ -31,8 +31,9 @@
                 <th class="text-center">Opções</th>
             </thead>
 
-            <tbody>
+            <tbody id = "tabela">
                 {% for c in lista_conta %}
+
                     <tr>
                         <td class="text-center">{{ c.descricao }}</td>
                         <td class="text-center">{{ c.categoria.nome }}</td>
@@ -41,7 +42,7 @@
                         <td class="text-center">{% if c.pago %}Sim{% else %}Não{% endif %}</td>
                         <td class="text-center">
                             <a href="{% url 'atualizar_conta' c.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
-                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" onclick="deleteCHidden({{ c.id }})">Delete</button>
+                            <button type="button" id="botao_deletar" class="btn btn-danger" data-toggle="modal" data-target="#meuModal" onclick="idCHidden({{ c.id }})">Delete</button>
                         </td>
                     </tr>
                 {% endfor %}

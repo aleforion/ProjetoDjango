@@ -27,7 +27,7 @@
                         <td class="text-center">{% if c.ativa %}Sim{% else %}Não{% endif %}</td>
                         <td class="text-center">
                             <a href="{% url 'atualizar_categoria' c.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
-                            <button type="button" id="botao_deletar" class="btn btn-danger"  data-toggle="modal" data-target="#meuModal" onclick="deleteCHidden({{ c.id }})" >Delete</button>
+                            <button type="button" id="botao_deletar" class="btn btn-danger"  data-toggle="modal" data-target="#meuModal" onclick="idCHidden({{ c.id }})" >Delete</button>
                         </td>
                     </tr>
                 {% endfor %}
